@@ -1,6 +1,8 @@
+#!/usr/bin/env python3.7.6
 import time
 import socket
 import datetime
+import sys
 
 rtts = []
 
@@ -12,8 +14,8 @@ for pings in range(15):
     # create a byte message
     message = f"PING {3331+pings} {datetime.datetime.now()}".encode()
     # set address to localhost, on port 5000
-    addr = ("127.0.0.1", 5000)
-
+    addr = (str(sys.argv[-2]), int(sys.argv[-1]))
+    
     # get start time and send message
     start = time.time()
     client_socket.sendto(message, addr)
