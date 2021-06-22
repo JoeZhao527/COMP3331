@@ -32,5 +32,7 @@ for pings in range(15):
     except socket.timeout:
         # if timeout, print timeout
         print(f"ping to 127.0.0.1, seq = {pings}, rtt = timeout")
-    
-print(f"minimum rtt = {min(rtts)}ms, average rtt = {int(sum(rtts)/len(rtts))}ms, maximum rtt = {max(rtts)}ms")
+if rtts:
+    print(f"minimum rtt = {min(rtts)}ms, average rtt = {int(sum(rtts)/len(rtts))}ms, maximum rtt = {max(rtts)}ms")
+else:
+    print("minimum rtt = none, average rtt = none, maximum rtt = none")
